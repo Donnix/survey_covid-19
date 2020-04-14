@@ -28,13 +28,16 @@
 	<link rel="stylesheet" type="text/css" href="{{asset('login/css/util.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('login/css/main.css')}}">
 <!--===============================================================================================-->
+
+
 </head>
 <body>
 
 
 	<div class="container-contact100">
 		<div class="wrap-contact100">
-			<form class="contact100-form validate-form">
+			<form  action="{{ route('survey.store') }}" method="POST" class="contact100-form validate-form" >
+            @csrf
 				<span class="contact100-form-title">
 					Survey Covid-19
 				</span>
@@ -51,211 +54,211 @@
 
 				<div class="wrap-input100 validate-input bg1">
 					<h5><b> A.Potensi Tertular di luar rumah</b></h5>
-					<div class="wrap-contact100-form-checkbox">
+					<div class="wrap-contact100-form-radio">
 						<span class="label-input100"><h6>1. Saya pergi keluar rumah?</h6></span>
 
-							<div class="contact100-form-checkbox m-t-15">
-								<input class="input-radio100" id="radio1" type="checkbox" name="checkboxyes" onclick="sum()" value="1" >
-								
+							<div class="contact100-form-radio m-t-15">
+								<input  id="radio1" type="radio" name="pertanyaan1"  value="1" >
+								<label for="ya1"> 
 									YA
 								</label>
-								<input class="input-radio100" id="radio1" type="checkbox" name="checkboxno" onclick="sumno()" value="1">
-							
+								<input  id="radio1" type="radio" name="pertanyaan1"  value="0">
+								<label for="tidak1"> 
 									TIDAK
 								</label>
-
 							</div>
-							
 					</div>
 					
 
-					<div class="wrap-contact100-form-checkbox">
+					<div class="wrap-contact100-form-radio">
 						<span class="label-input100"><h6>2. Saya Menggunakan transportasi umum:online,angkot,bus,dll?</h6></span>
 
-						<div class="contact100-form-checkbox m-t-15">
-								<input class="input-radio100" id="radio3" type="checkbox" name="checkboxyes" onclick="sum()" value="1" >
-								<label class="label-radio100" for="radio3"> 
+				
+						<div class="contact100-form-radio m-t-15">
+								<input  id="radio2" type="radio" name="pertanyaan2" value="1" >
+								<label for="ya2"> 
 									YA
 								</label>
-								<input class="input-radio100" id="radio4" type="checkbox" name="checkboxno" onclick="sumno()" value="1">
-								<label class="label-radio100" for="radio4">
+								<input  id="radio2" type="radio" name="pertanyaan2" value="0
+								">
+								<label for="tidak2"> 
 									TIDAK
 								</label>
 							</div>
 							</div>
-					<div class="wrap-contact100-form-checkbox">
+					<div class="wrap-contact100-form-radio">
 						<span class="label-input100"><h6>3. Saya tidak memakai masker saat berkumpul dengan oranglain?</h6></span>
 
-						<div class="contact100-form-checkbox m-t-15">
-								<input class="input-radio100" id="radio5" type="checkbox" name="checkboxyes" onclick="sum()" value="1" >
-								<label class="label-radio100" for="radio5"> 
+						<div class="contact100-form-radio m-t-15">
+								<input  id="radio3" type="radio" name="pertanyaan3"  value="1" >
+								<label for="ya3"> 
 									YA
 								</label>
-								<input class="input-radio100" id="radio6" type="checkbox" name="checkboxno" onclick="sumno()" value="1">
-								<label class="label-radio100" for="radio6">
+								<input  id="radio3" type="radio" name="pertanyaan3" value="0">
+								<label for="tidak3">
 									TIDAK
 								</label>
 							</div>
 							
 					</div>
 
-						<div class="wrap-contact100-form-checkbox">
+						<div class="wrap-contact100-form-radio">
 						<span class="label-input100"><h6>4. Saya berjabat tangan dengan orang lain?</h6></span>
 
-						<div class="contact100-form-checkbox m-t-15">
-								<input class="input-radio100" id="radio7" type="checkbox" name="checkboxyes" onclick="sum()" value="1" >
-								<label class="label-radio100" for="radio7"> 
+						<div class="contact100-form-radio m-t-15">
+								<input  id="radio4" type="radio" name="pertanyaan4"  value="1" >
+								<label for="ya4"> 
 									YA
 								</label>
-								<input class="input-radio100" id="radio8" type="checkbox" name="checkboxno" onclick="sumno()" value="1">
-								<label class="label-radio100" for="radio8">
+								<input  id="radio4" type="radio" name="pertanyaan4" value="0">
+								<label for="tidak4">
 									TIDAK
 								</label>
 							</div>
 							</div>
 
-						<div class="wrap-contact100-form-checkbox">
+						<div class="wrap-contact100-form-radio">
 						<span class="label-input100"><h6>5. Saya tidak membersihkan tangan dengan hand sanitizer/tissue basah sebelum berkendara?</h6></span>
 
-						<div class="contact100-form-checkbox m-t-15">
-								<input class="input-radio100" id="radio9" type="checkbox" name="checkboxyes" onclick="sum()" value="1" >
-								<label class="label-radio100" for="radio9"> 
+						<div class="contact100-form-radio m-t-15">
+								<input  id="radio5" type="radio" name="pertanyaan5"  value="1" >
+								<label for="ya5"> 
 									YA
 								</label>
-								<input class="input-radio100" id="radio10" type="checkbox" name="checkboxno" onclick="sumno()" value="1">
-								<label class="label-radio100" for="radio10">
+								<input  id="radio5" type="radio" name="pertanyaan5" value="0">
+								<label for="tidak5">
 									TIDAK
 								</label>
 							</div>
 
 						</div>
 
-						<div class="wrap-contact100-form-checkbox">
+						<div class="wrap-contact100-form-radio">
 						<span class="label-input100"><h6>6. Saya meneyentuh benda/uang orang lain?</h6></span>
 
-						<div class="contact100-form-checkbox m-t-15">
-								<input class="input-radio100" id="radio11" type="checkbox" name="checkboxyes" onclick="sum()" value="1" >
-								<label class="label-radio100" for="radio11"> 
+						<div class="contact100-form-radio m-t-15">
+								<input  id="radio6" type="radio" name="pertanyaan6"  value="1" >
+								<label for="ya6"> 
 									YA
 								</label>
-								<input class="input-radio100" id="radio12" type="checkbox" name="checkboxno" onclick="sumno()" value="1">
-								<label class="label-radio100" for="radio12">
+								<input  id="radio6" type="radio" name="pertanyaan6" value="0">
+								<label for="tidak6">
 									TIDAK
 								</label>
 							</div>
 
 						</div>
 
-						<div class="wrap-contact100-form-checkbox">
+						<div class="wrap-contact100-form-radio">
 						<span class="label-input100"><h6>7. Saya tidak menjaga jarak 1.5 meter dengan orang lain saat beraktivitas di luar rumah?</h6></span>
 
-						<div class="contact100-form-checkbox m-t-15">
-								<input class="input-radio100" id="radio13" type="checkbox" name="checkboxyes" onclick="sum()" value="1" >
-								<label class="label-radio100" for="radio13"> 
+						<div class="contact100-form-radio m-t-15">
+								<input  id="radio7" type="radio" name="pertanyaan7"  value="1" >
+								<label for="ya7"> 
 									YA
 								</label>
-								<input class="input-radio100" id="radio14" type="checkbox" name="checkboxno" onclick="sumno()" value="1">
-								<label class="label-radio100" for="radio14">
+								<input  id="radio7" type="radio" name="pertanyaan7" value="0">
+								<label for="tidak7">
 									TIDAK
 								</label>
 							</div>
 						
 						</div>
 
-						<div class="wrap-contact100-form-checkbox">
+						<div class="wrap-contact100-form-radio">
 						<span class="label-input100"><h6>8. Saya Makan di tempat umum : restaurant/ warung?</h6></span>
 
-						<div class="contact100-form-checkbox m-t-15">
-								<input class="input-radio100" id="radio15" type="checkbox" name="checkboxyes" onclick="sum()" value="1" >
-								<label class="label-radio100" for="radio15"> 
+						<div class="contact100-form-radio m-t-15">
+								<input  id="radio8" type="radio" name="pertanyaan8"  value="1" >
+								<label for="ya8"> 
 									YA
 								</label>
-								<input class="input-radio100" id="radio16" type="checkbox" name="checkboxno" onclick="sumno()" value="1">
-								<label class="label-radio100" for="radio16">
+								<input  id="radio8" type="radio" name="pertanyaan8" value="0">
+								<label for="tidak8">
 									TIDAK
 								</label>
 							</div>
 
 						</div>
-						<div class="wrap-contact100-form-checkbox">
+						<div class="wrap-contact100-form-radio">
 						<span class="label-input100"><h6>9. Saya tidak minum air hangat & mencuci tangan setelah tiba di tujuan?</h6></span>
 
-						<div class="contact100-form-checkbox m-t-15">
-								<input class="input-radio100" id="radio17" type="checkbox" name="checkboxyes" onclick="sum()" value="1" >
-								<label class="label-radio100" for="radio17"> 
+						<div class="contact100-form-radio m-t-15">
+								<input  id="radio9" type="radio" name="pertanyaan9"  value="1" >
+								<label for="ya9"> 
 									YA
 								</label>
-								<input class="input-radio100" id="radio18" type="checkbox" name="checkboxno" onclick="sumno()" value="1">
-								<label class="label-radio100" for="radio18">
+								<input  id="radio9" type="radio" name="pertanyaan9" value="0">
+								<label for="tidak8">
 									TIDAK
 								</label>
 							</div>
 							
 						</div>
 
-						<div class="wrap-contact100-form-checkbox">
+						<div class="wrap-contact100-form-radio">
 						<span class="label-input100"><h6>10. Saya berada di  wilayah kelurahan tempat pasien tertular ?</h6></span>
 
-						<div class="contact100-form-checkbox m-t-15">
-								<input class="input-radio100" id="radio19" type="checkbox" name="checkboxyes" onclick="sum()" value="1" >
-								<label class="label-radio100" for="radio19"> 
+						<div class="contact100-form-radio m-t-15">
+								<input  id="radio10" type="radio" name="pertanyaan10"  value="1" >
+								<label for="ya10"> 
 									YA
 								</label>
-								<input class="input-radio100" id="radio20" type="checkbox" name="checkboxno" onclick="sumno()" value="1">
-								<label class="label-radio100" for="radio20">
+								<input  id="radio10" type="radio" name="pertanyaan10" value="0">
+								<label for="tidak10">
 									TIDAK
 								</label>
 							</div>
 
 						</div>
-
+		
 
 				</div>
 
 				<div class="wrap-input100 validate-input bg1">
 					<h5><b> B.Potensi Tertular di dalam rumah</b></h5>
-					<div class="wrap-contact100-form-checkbox">
+					<div class="wrap-contact100-form-radio">
 						<span class="label-input100"><h6>11. Saya tidak menyediakan hand sanitazer di sekitar sekitar rumah?></span>
 
-						<div class="contact100-form-checkbox m-t-15">
-								<input class="input-radio100" id="radio21" type="checkbox" name="checkboxyes" onclick="sum()" value="1" >
-								<label class="label-radio100" for="radio21"> 
+						<div class="contact100-form-radio m-t-15">
+								<input  id="radio11" type="radio" name="pertanyaan11"  value="1" >
+								<label for="ya11"> 
 									YA
 								</label>
-								<input class="input-radio100" id="radio22" type="checkbox" name="checkboxno" onclick="sumno()" value="1">
-								<label class="label-radio100" for="radio22">
+								<input  id="radio11" type="radio" name="pertanyaan11" value="0">
+								<label for="tidak11">
 									TIDAK
 								</label>
 						</div>
 					</div>
 	
 
-						<div class="wrap-contact100-form-checkbox">
+						<div class="wrap-contact100-form-radio">
 						<span class="label-input100"><h6>12. Saya tidak cuci tangan dengan sabun setelah tiba di rumah?</h6></span>
 
-							<div class="contact100-form-checkbox m-t-15">
-								<input class="input-radio100" id="radio23" type="checkbox" name="checkboxyes" onclick="sum()" value="1" >
-								<label class="label-radio100" for="radio23"> 
+							<div class="contact100-form-radio m-t-15">
+								<input  id="radio12" type="radio" name="pertanyaan12"  value="1" >
+								<label for="ya12"> 
 									YA
 								</label>
-								<input class="input-radio100" id="radio24" type="checkbox" name="checkboxno" onclick="sumno()" value="1">
-								<label class="label-radio100" for="radio24">
+								<input  id="radio12" type="radio" name="pertanyaan12" value="0">
+								<label for="tidak12">
 									TIDAK
 								</label>
 							</div>
 						</div>
 
 
-						<div class="wrap-contact100-form-checkbox">
+						<div class="wrap-contact100-form-radio">
 						<span class="label-input100"><h6>13. Saya tidak menyediakan antiseptis, masker, sabun untuk keluarga dirumah?</h6></span>
 
-						<div class="contact100-form-checkbox m-t-15">
-								<input class="input-radio100" id="radio25" type="checkbox" name="checkboxyes" onclick="sum()" value="1" >
-								<label class="label-radio100" for="radio25"> 
+						<div class="contact100-form-radio m-t-15">
+								<input  id="radio13" type="radio" name="pertanyaan13"  value="1" >
+								<label for="ya13"> 
 									YA	
 								</label>
-								<input class="input-radio100" id="radio26" type="checkbox" name="checkboxno" onclick="sumno()" value="1">
-								<label class="label-radio100" for="radio26">
+								<input  id="radio13" type="radio" name="pertanyaan13" value="0">
+								<label for="tidak14">
 									TIDAK
 								</label>
 							</div>
@@ -263,45 +266,45 @@
 
 						</div>
 
-						<div class="wrap-contact100-form-checkbox">
+						<div class="wrap-contact100-form-radio">
 						<span class="label-input100"><h6>14. Saya tidak segera merendam pakaian dari luar rumah dengan air panas/deterjen?</h6></span>
-						<div class="contact100-form-checkbox m-t-15">
-								<input class="input-radio100" id="radio27" type="checkbox" name="checkboxyes" onclick="sum()" value="1" >
-								<label class="label-radio100" for="radio27"> 
+						<div class="contact100-form-radio m-t-15">
+								<input  id="radio14" type="radio" name="pertanyaan14"  value="1" >
+								<label for="ya14"> 
 									YA
 								</label>
-								<input class="input-radio100" id="radio28" type="checkbox" name="checkboxno" onclick="sumno()" value="1">
-								<label class="label-radio100" for="radio28">
+								<input  id="radio14" type="radio" name="pertanyaan14" value="0">
+								<label for="tidak14">
 									TIDAK
 								</label>
 							</div>
 							</div>
 
-						<div class="wrap-contact100-form-checkbox">
+						<div class="wrap-contact100-form-radio">
 						<span class="label-input100"><h6>15. Saya tidak segera mandi keramas setelah berpergian dari luar rumah?</h6></span>
 
-						<div class="contact100-form-checkbox m-t-15">
-								<input class="input-radio100" id="radio29" type="checkbox" name="checkboxyes" onclick="sum()" value="1" >
-								<label class="label-radio100" for="radio29"> 
+						<div class="contact100-form-radio m-t-15">
+								<input  id="radio15" type="radio" name="pertanyaan15"  value="1" >
+								<label for="ya15"> 
 									YA
 								</label>
-								<input class="input-radio100" id="radio30" type="checkbox" name="checkboxno" onclick="sumno()" value="1">
-								<label class="label-radio100" for="radio30">
+								<input  id="radio15" type="radio" name="pertanyaan15" value="0">
+								<label for="tidak15">
 									TIDAK
 								</label>
 							</div>
 							</div>
 
-						<div class="wrap-contact100-form-checkbox">
+						<div class="wrap-contact100-form-radio">
 						<span class="label-input100"><h6>16. Saya tidak mensosialisasikan survey penilaian resiko ini kepada keluarga?</h6></span>
 
-						<div class="contact100-form-checkbox m-t-15">
-								<input class="input-radio100" id="radio31" type="checkbox" name="checkboxyes" onclick="sum()" value="1" >
-								<label class="label-radio100" for="radio31"> 
+						<div class="contact100-form-radio m-t-15">
+								<input  id="radio16" type="radio" name="pertanyaan16"  value="1" >
+								<label for="ya16"> 
 									YA
 								</label>
-								<input class="input-radio100" id="radio32" type="checkbox" name="checkboxno" onclick="sumno()" value="1">
-								<label class="label-radio100" for="radio32">
+								<input  id="radio16" type="radio" name="pertanyaan16" value="0">
+								<label for="tidak16">
 									TIDAK
 								</label>
 							</div>
@@ -310,74 +313,74 @@
 
 				<div class="wrap-input100 validate-input bg1">
 					<h5><b> C.Daya Tahan Tubuh (IMUNITAS)</b></h5>
-					<div class="wrap-contact100-form-checkbox">
+					<div class="wrap-contact100-form-radio">
 						<span class="label-input100"><h6>17. Saya dalam sehari tidak terkena matahari minimal 15 menit?></span>
 
-						<div class="contact100-form-checkbox m-t-15">
-								<input class="input-radio100" id="radio33" type="checkbox" name="checkboxyes" onclick="sum()" value="1" >
-								<label class="label-radio100" for="radio33"> 
+						<div class="contact100-form-radio m-t-15">
+								<input  id="radio17" type="radio" name="pertanyaan17"  value="1" >
+								<label for="ya17"> 
 									YA
 								</label>
-								<input class="input-radio100" id="radio34" type="checkbox" name="checkboxno" onclick="sumno()" value="1">
-								<label class="label-radio100" for="radio34">
+								<input  id="radio17" type="radio" name="pertanyaan17" value="0">
+								<label for="tidak17">
 									TIDAK
 								</label>
 							</div>
 							</div>
 						
-						<div class="wrap-contact100-form-checkbox">
+						<div class="wrap-contact100-form-radio">
 						<span class="label-input100"><h6>18. Saya tidak jalan kaki/olahraga minimal 30 menit setiap hari?</h6></span>
-						<div class="contact100-form-checkbox m-t-15">
-								<input class="input-radio100" id="radio35" type="checkbox" name="checkboxyes" onclick="sum()" value="1" >
-								<label class="label-radio100" for="radio35"> 
+						<div class="contact100-form-radio m-t-15">
+								<input  id="radio18" type="radio" name="pertanyaan18"  value="1" >
+								<label for="ya18"> 
 									YA
 								</label>
-								<input class="input-radio100" id="radio36" type="checkbox" name="checkboxno" onclick="sumno()" value="1">
-								<label class="label-radio100" for="radio36">
+								<input  id="radio18" type="radio" name="pertanyaan18" value="0">
+								<label for="tidak18">
 									TIDAK
 								</label>
 							</div>
 							</div>
 
 						
-						<div class="wrap-contact100-form-checkbox">
+						<div class="wrap-contact100-form-radio">
 						<span class="label-input100"><h6>19. Saya jarang minum vitamin C,E, dan kurang tidur?</h6></span>
-						<div class="contact100-form-checkbox m-t-15">
-								<input class="input-radio100" id="radio37" type="checkbox" name="checkboxyes" onclick="sum()" value="1" >
-								<label class="label-radio100" for="radio37"> 
+						<div class="contact100-form-radio m-t-15">
+								<input  id="radio19" type="radio" name="pertanyaan19"  value="1" >
+								<label for="ya19"> 
 									YA
 								</label>
-								<input class="input-radio100" id="radio38" type="checkbox" name="checkboxno" onclick="sumno()" value="1">
-								<label class="label-radio100" for="radio38">
+								<input  id="radio19" type="radio" name="pertanyaan19" value="0">
+								<label for="tidak19">
 									TIDAK
 								</label>
 							</div>
 							</div>
 							
-						<div class="wrap-contact100-form-checkbox">
+						<div class="wrap-contact100-form-radio">
 						<span class="label-input100"><h6>20.  Usia Saya di atas 60 tahun?</h6></span>
-						<div class="contact100-form-checkbox m-t-15">
-								<input class="input-radio100" id="radio39" type="checkbox" name="checkboxyes" onclick="sum()" value="1" >
-								<label class="label-radio100" for="radio39"> 
+						<div class="contact100-form-radio m-t-15">
+								<input  id="radio20" type="radio" name="pertanyaan20"  value="1" >
+								<label for="ya20"> 
 									YA
 								</label>
-								<input class="input-radio100" id="radio40" type="checkbox" name="checkboxno" onclick="sumno()" value="1">
-								<label class="label-radio100" for="radio40">
+								<input  id="radio20" type="radio" name="pertanyaan20" value="0">
+								<label for="tidak20">
 									TIDAK
 								</label>
 							</div>
 							</div>
 
-						<div class="wrap-contact100-form-checkbox">
+						<div class="wrap-contact100-form-radio">
 						<span class="label-input100"><h6>21. Saya mempunyai penyakit :jantung/diabetes/gangguan pernafasan kronik?</h6></span>
 
-						<div class="contact100-form-checkbox m-t-15">
-								<input class="input-radio100" id="radio41" type="checkbox" name="checkboxyes" onclick="sum()" value="1" >
-								<label class="label-radio100" for="radio41"> 
+						<div class="contact100-form-radio m-t-15">
+								<input  id="radio21" type="radio" name="pertanyaan21"  value="1" >
+								<label for="ya21"> 
 									YA
 								</label>
-								<input class="input-radio100" id="radio42" type="checkbox" name="checkboxno" onclick="sumno()" value="1">
-								<label class="label-radio100" for="radio42">
+								<input  id="radio21" type="radio" name="pertanyaan21" value="0">
+								<label for="tidak21">
 									TIDAK
 								</label>
 							</div>
@@ -385,19 +388,12 @@
 			
 				</div>
 
-				
-				<div class="wrap-input100 bg1 rs1-wrap-input100">
-					<span class="label-input100">JUMLAH YA </span>
-					<input class="input100" type="text" name="valueyes" readonly="readonly">
-				</div>
-				
-				<div class="wrap-input100 bg1 rs1-wrap-input100">
-					<span class="label-input100">JUMLAH TIDAK </span>
-					<input class="input100" type="text" name="valueno" readonly="readonly">
-				</div>
-
+			
+					<input class="input100" type="hidden"  id="jumlah_ya"name="jumlah_ya" >
+					<input class="input100" type="hidden" id="jumlah_tidak" name="jumlah_tidak">
+			
 				<div class="container-contact100-form-btn">
-					<button class="contact100-form-btn">
+					<button type="submit" onclick="sum()" class="contact100-form-btn">
 						<span>
 							CEK
 							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
@@ -428,36 +424,27 @@
 	<script src="{{asset('login/vendor/noui/nouislider.min.js')}}"></script>
 <!--===============================================================================================-->
 	<script src="{{asset('login/js/main.js')}}"></script>
+   
+    <script>
+    function sum(){
+        var items = document.querySelectorAll('#radio1,#radio2, #radio3, #radio4, #radio5, #radio6, #radio7, #radio8, #radio9, #radio10, #radio11, #radio12,#radio13, #radio14, #radio14,#radio15,#radio15,#radio16, #radio17, #radio18, #radio19, #radio20, #radio21');
+    var total= 0 ; 
+	var tidak= 0;
+	var x    = 21;
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-
-
-<script>
-  function sum() {
-  var input = document.getElementsByName("checkboxyes");
-  var total = 0;
-  for (var i = 0; i < input.length; i++) {
-    if (input[i].checked) {
-      total += parseFloat(input[i].value);
-    }
-  }
-  document.getElementsByName("valueyes")[0].value =total;
-}
-
-function sumno() {
-  var input = document.getElementsByName("checkboxno");
-  var total = 0;
-  for (var i = 0; i < input.length; i++) {
-    if (input[i].checked) {
-      total += parseFloat(input[i].value);
-    }
-  }
-  document.getElementsByName("valueno")[0].value =total;
-}
-</script>
+    for(var i= 0; i < items.length; i++){
+        if(items[i].checked){
+            total += parseInt(items[i].value);
+			tidak= x- total;
+        }
+	         }
+    document.getElementsByName('jumlah_ya')[0].value =total;
+	document.getElementsByName('jumlah_tidak')[0].value =tidak;
+  
+   }
 
 
+      </script>
 
 
 </body>

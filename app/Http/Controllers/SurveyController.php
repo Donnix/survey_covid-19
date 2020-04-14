@@ -1,10 +1,11 @@
 <?php
+  namespace App\Http\Controllers;
+
   
-namespace App\Http\Controllers;
-  
-use App\Survey;
-use Illuminate\Http\Request;
-  
+  use App\User;
+  use View;
+  use Illuminate\Http\Request;
+  use DB;
 class SurveyController extends Controller
 {
     /**
@@ -15,8 +16,8 @@ class SurveyController extends Controller
     public function index()
     {
   
-        return view('survey.index')
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('survey.index');
+    
     }
    
     /**
@@ -25,8 +26,9 @@ class SurveyController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('survey.create');
+    { 
+        $survey = User::all();
+        return view('survey.add');
     }
   
     /**
@@ -36,17 +38,26 @@ class SurveyController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'value'=>'required',
-        ]);
-  
-        Survey::create($request->all());
-   
-        return redirect()->route('survey.index')
-                        ->with('success','Survey created successfully.');
+     
+    {  
+         DB::beginTransaction();
+        $data = new User();
+        $data->name = $request->name;
+        $data->email = $request->email;
+        $data->jumlah_ya = $request->jumlah_ya;
+        $data->jumlah_tidak = $request->jumlah_tidak;
+        $data->save();
+
+        $id = $request->id;
+
+        DB::update("
+            UPDATE users
+            SET token = token + 1
+            WHERE id = ?
+        ", [$id]);
+
+        DB::commit();
+        return view::make('survey.add',compact('data'));
     }
    
     /**
@@ -57,7 +68,8 @@ class SurveyController extends Controller
      */
     public function show(Survey $survey)
     {
-        return view('survey.show',compact('product'));
+       
+       
     }
    
     /**
@@ -68,7 +80,7 @@ class SurveyController extends Controller
      */
     public function edit(Survey $survey)
     {
-        return view('survey.edit',compact('product'));
+       
     }
   
     /**
@@ -80,17 +92,7 @@ class SurveyController extends Controller
      */
     public function update(Request $request, Survey $survey)
     {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'value'=>'required',
-
-        ]);
-  
-        $survey->update($request->all());
-  
-        return redirect()->route('survey.index')
-                        ->with('success','Survey updated successfully');
+      
     }
   
     /**
@@ -101,9 +103,5 @@ class SurveyController extends Controller
      */
     public function destroy(Survey $survey)
     {
-        $survey->delete();
-  
-        return redirect()->route('survey.index')
-                        ->with('success','Survey deleted successfully');
     }
 }

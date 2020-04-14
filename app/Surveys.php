@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Models;
+namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Survey extends Model
+class Surveys extends Model
 {
 
     /**
@@ -29,8 +29,8 @@ class Survey extends Model
     protected $fillable = [
         'name',
          'email', 
-         'password',
-         'value',
+         'jumlah_ya',
+         'jumlah_tidak',
     ];
 
     protected $hidden = [

@@ -15,25 +15,43 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
+   /**
+    * The table associated with the model.
+    *
+    * @var string
+    */
+    protected $table = 'users';
 
     /**
-     * The attributes that should be hidden for arrays.
+     * The accessors to append to the model's array form.
      *
      * @var array
      */
+    protected $primaryKey = 'id';
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name',
+         'email', 
+         'password',
+         'jumlah_ya',
+         'jumlah_tidak',
+         'token',
+    ];
+
     protected $hidden = [
         'password', 'remember_token',
     ];
 
+
     /**
-     * The attributes that should be cast to native types.
+     * The attributes that should be mutated to dates.
      *
      * @var array
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    protected $dates = ['created_at', 'updated_at'];
 }

@@ -18,5 +18,7 @@ Route::get('/', function () {
 });
 Route::group(['prefix' => 'survey', 'as' => 'survey.'], function() {
     Route::get('/', 'SurveyController@index')->name('index');
-    Route::post('/create', 'SurveyController@create');
+    Route::get('show', 'SurveyController@create')->name('create');  
+    Route::post('store', 'SurveyController@store')->name('store');
+
     });
