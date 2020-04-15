@@ -2,7 +2,7 @@
 <html lang="en">
 
   <head>
-    <title>STOPCOVID</title>
+    <title>Stop Covid-19</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -44,11 +44,7 @@
         <div class="container">
           <div class="row align-items-center position-relative">
 
-            <div class="col-3 ">
-              <div class="site-logo serif">
-                <a href="index.html"><i>STOP-COVID</i></a>
-              </div>
-            </div>
+           
 
             <div class="col-9  text-right">
               

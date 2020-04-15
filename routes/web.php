@@ -13,12 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 Route::group(['prefix' => 'survey', 'as' => 'survey.'], function() {
     Route::get('/', 'SurveyController@index')->name('index');
     Route::get('show', 'SurveyController@create')->name('create');  
     Route::post('store', 'SurveyController@store')->name('store');
 
+    });
+    Route::get('/', function () {
+        return view('welcome');
     });

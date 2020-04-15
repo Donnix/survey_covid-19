@@ -28,23 +28,7 @@
 	<link rel="stylesheet" type="text/css" href="{{asset('login/css/util.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('login/css/main.css')}}">
 <!--===============================================================================================-->
-<style>
-            #first {
-  background-color: yellow;
-}
-        </style>
-        
-         <style>
-            #second {
-  background-color: red;
-}
-        </style>
-        
-        <style>
-            #third {
-  background-color: green;
-}
-        </style>
+
 
 </head>
 <body>
@@ -77,28 +61,29 @@
 
 		@if($data->jumlah_ya>-1 & $data->jumlah_ya <8)         
 		<div class="wrap-input100 bg1 ">
-				<input class="input100"  id="third"type="text" name="statsus" readonly="readonly" value="Resiko Terkena :Ringan ">
+				<input class="input100"  id="third"type="text" name="statsus" readonly="readonly" value="Resiko Terkena : Ringan ">
 		</div>	
         @elseif($data->jumlah_ya>7 & $data->jumlah_ya<15)
 		<div class="wrap-input100 bg1 ">
-				<input class="input100" id="first" type="text" name="statsus" readonly="readonly" value="Resiko Terkena :Sedang ">
+				<input class="input100" id="first" type="text" name="statsus" readonly="readonly" value="Resiko Terkena : Sedang ">
 		</div>
         @else
 		<div class="wrap-input100 bg1 ">
-				<input class="input100" id="second" type="text" name="statsus" readonly="readonly" value="Resiko Terkena :Tinggi ">
+				<input class="input100" id="second" type="text" name="statsus" readonly="readonly" value="Resiko Terkena : Tinggi ">
 		</div>
         @endif
 				
-		
-				<div class="container-contact100-form-btn">
-					<button type="submit" href="home"  class="contact100-form-btn">
+			</form>
+
+			
+			<div class="container-contact100-form-btn">
+					<button  onclick="location.href='{{ url('/') }}'" class="contact100-form-btn">
 						<span>
 							Home
 							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
 						</span>
 					</button>
 				</div>
-			</form>
 		</div>
 	</div>
 
